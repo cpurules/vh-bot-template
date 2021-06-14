@@ -20,6 +20,11 @@ class BotConfig:
                 self.ADMIN_IDS = [int(x) for x in config_dict['ADMIN_ROLES']]
             except ValueError as e:
                 raise ValueError('Error while parsing ADMIN_ROLES: ' + str(e))
+            
+            try:
+                self.MASTER_GUILD = int(config_dict['MASTER_GUILD'])
+            except ValueError as e:
+                raise ValueError('Error while parsing MASTER_GUILD: ' + str(e))
 
             self.TOKEN = config_dict['TOKEN']
             if self.TOKEN == '':
