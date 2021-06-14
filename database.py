@@ -4,7 +4,7 @@ import os.path
 from pyArango.connection import *
 
 class Database:
-    def __init__(self, file='dbconfig_test.json'):
+    def __init__(self, file='dbconfig.json'):
         if not os.path.exists(file):
             raise FileNotFoundError('Could not find configuration file: ' + file)
 

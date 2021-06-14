@@ -3,7 +3,7 @@ import json
 import os.path
 
 class BotConfig:
-    def __init__(self, bot=None, file='config_test.json'):
+    def __init__(self, bot=None, file='config.json'):
         self.bot = bot
 
         if not os.path.exists(file):
@@ -16,10 +16,10 @@ class BotConfig:
                 raise Exception('Error while parsing ' + file + ': ' + str(e))
         
         try:
-            # try:
-                # self.CREATE_QUEUE_ROLES = [int(x) for x in config_dict['CREATE_QUEUE_ROLES']]
-            # except ValueError as e:
-                # raise ValueError('Error while parsing CREATE_QUEUE_ROLES: ' + str(e))
+            try:
+                self.ADMIN_IDS = [int(x) for x in config_dict['ADMIN_ROLES']]
+            except ValueError as e:
+                raise ValueError('Error while parsing ADMIN_ROLES: ' + str(e))
 
             self.TOKEN = config_dict['TOKEN']
             if self.TOKEN == '':
